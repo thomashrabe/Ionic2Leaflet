@@ -16,7 +16,7 @@ export class LeafletView {
     
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.loadMap();
   }
 
@@ -31,9 +31,11 @@ export class LeafletView {
         
         // this.map.options.zoomControl = false;
 
-        Leaflet.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}')
-          .addTo(this._map);
-     });
+        Leaflet.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}').addTo(this._map);
+
+     }, (error) => {
+      console.log(error);
+    });
   }
 
 }
